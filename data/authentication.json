@@ -1,0 +1,20 @@
+[
+    {
+        "name": "jalal",
+        "email": "jalal@gmail.com",
+        "password": "5055",
+        "position": "manager"
+    },
+    {
+        "name": "haseeb",
+        "email": "haseeb@direct.com",
+        "password": "8085",
+        "position": "analyst"
+    },
+    {
+        "name": "sinan",
+        "email": "sinan@gmail.com",
+        "password": "6064",
+        "position": "cashier"
+    }
+]

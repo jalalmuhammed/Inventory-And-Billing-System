@@ -1,0 +1,6 @@
+import os
+
+#this is where all the constants are going to be stored
+
+DATA_FOLDER = "data"
+AUTH_DATA_FILE = os.path.join(DATA_FOLDER,"authentication.json")
