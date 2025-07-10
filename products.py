@@ -1,13 +1,16 @@
-
 class Product:
     """This product class create a single product and allow inventory
     class to manage the whole product list.we will pass the instance of
     this clss to inventory class later. """
-    product_id = 100
+    count_id = 100
 
-    def __init__(self,product_name,product_price,product_quantity):
-        Product.product_id += 1
-        self.product_id = Product.product_id
+    def __init__(self,product_name,product_price,product_quantity,product_id= None):
+        if product_id is not None:
+            self.product_id = product_id
+        else:
+            self.product_id = Product.count_id
+            Product.count_id += 1
+
         self.product_name = product_name
         self.product_price = product_price
         self.product_quantity = product_quantity
@@ -29,5 +32,25 @@ class Product:
               f"Product Name: {self.product_name} | "
               f"Product Price: {self.product_price:.2f} | "
               f"Product Stock: {self.product_quantity}")
+
+    def to_save_dictionary(self):
+        product_info = {
+            "product_id" : self.product_id,
+            "product_name" : self.product_name,
+            "product_price" : self.product_price,
+            "product_stock" : self.product_quantity
+        }
+        return product_info
+
+    @classmethod
+    def from_saved_dictionary(cls, dictionary):
+        """accessing as dictionary and returning as instance,"""
+        return cls(
+            product_id=dictionary["product_id"],
+            product_name=dictionary["product_name"],
+            product_price=dictionary["product_price"],
+            product_quantity=dictionary["product_stock"]
+
+        )
 
 

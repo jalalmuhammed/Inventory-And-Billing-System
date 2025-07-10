@@ -20,6 +20,7 @@ class FileManager:
         with open(constants.AUTH_DATA_FILE, "w") as file:
             json.dump(data, file, indent=4)
 
+file = FileManager()
 
 def register_new_user():
     """This function does the user registration for admins,
@@ -49,7 +50,6 @@ def register_new_user():
             "password" : password,
             "position" : position
         }
-        file = FileManager()
         current_user_data = file.load_file()
         current_user_data.append(user_registered_data)
         file.save_file(current_user_data)
@@ -60,7 +60,6 @@ def register_new_user():
         print(f"Error Occurred: {e}")
 
 
-file = FileManager()
 datas = file.load_file()
 
 def authenticate():
@@ -88,7 +87,7 @@ def authenticate():
             else:
                 print("Wrong Password.")
         else:
-            print("Too many Faild attempt")
+            print("Too many Failed attempt")
             return False,None
 
     except Exception as e:
