@@ -2,6 +2,8 @@
 from authentication import authenticate,register_new_user,check_manager
 from inventory import Inventory
 from billing import Bill
+from reporting import SalesReport
+sales_report = SalesReport()
 inventory = Inventory()
 
 
@@ -13,7 +15,7 @@ def manager_dashboard(inventory):
                                "3: Update Product 4: Remove Product 0: Exit: ").strip())
 
             if choice == 0:
-                print("Exiting Dashboard.")
+                print("Exiting Manager Dashboard.")
                 break
             elif choice == 1:
                 manager.show_all_product()
@@ -54,8 +56,9 @@ def manager_dashboard(inventory):
             print(f"Error Occurred.{e}")
 
 
-def cashier_dashboard(inventory):
+def cashier_dashboard(inventory,sales_report):
     cashier = Bill(inventory)
+    for_bill_history = sales_report
     while True:
         try:
             choice = int(input("1: Add Product To Cart 2: View Cart "
@@ -63,7 +66,7 @@ def cashier_dashboard(inventory):
                                "5: Clear Cart 0: Exit: ").strip())
 
             if choice == 0:
-                print("Exiting Dashboard.")
+                print("Exiting Cashier Dashboard.")
                 break
 
             elif choice == 1:
@@ -82,7 +85,7 @@ def cashier_dashboard(inventory):
                 cashier.save_total_bill()
 
             elif choice == 4:
-                cashier.show_bill_history()
+                for_bill_history.show_all_bill()
 
             elif choice == 5:
                 cashier.clear_cart()
@@ -92,6 +95,42 @@ def cashier_dashboard(inventory):
 
         except ValueError:
             print("Enter Valid Inputs.")
+
+def analyst_dashboard(sales_report):
+    analyst = sales_report
+    while True:
+        try:
+            choice = int(input("1: Store Overview 2: Filter By Date "
+                               "3: Show By ID 4: Show All Bills "
+                               "5: Export to CSV 0: Exit: ").strip())
+
+            if choice == 0:
+                print("Exiting Analyst Dashboard.")
+                break
+
+            elif choice == 1:
+                analyst.overview()
+
+            elif choice == 2:
+                start_date = input("Enter Start Date: ")
+                end_date = input("Enter End Date: ")
+                analyst.filter_by_date(start_date,end_date)
+
+            elif choice == 3:
+                analyst.show_bill_by_id()
+
+            elif choice == 4:
+                analyst.show_all_bill()
+
+            elif choice == 5:
+                analyst.export_to_csv()
+
+            else:
+                print("Enter Valid Options.")
+
+        except ValueError:
+            print("Enter Valid Inputs.")
+
 
 def main():
     """This is the main function,which take user choice and call the favorable functions"""
@@ -115,10 +154,11 @@ def main():
             if is_authenticated:
                 if choice == 2:
                     print(f"{user_name},Welcome To Your Cashier Dashboard. ")
-                    cashier_dashboard(inventory)
+                    cashier_dashboard(inventory,sales_report)
 
                 elif choice == 3:
                     print(f"{user_name},Welcome To Your Analyst Dashboard. ")
+                    analyst_dashboard(sales_report)
 
         elif choice == 4:
             register_new_user()
