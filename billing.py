@@ -107,6 +107,10 @@ class Bill:
 
         return bill
 
+    def show_bill_history(self):
+        for bill in self.sales_data:
+            print(bill)
+
     def save_total_bill(self):
         """This function displays Bill to the user and saving the whole bill to the json file."""
         amount_total,amount_text = self.add_total()
@@ -133,7 +137,7 @@ class Bill:
 
         self.sales_data.append(data)
         self.file.save_file(self.sales_data)
-        print("Sales Data Added Successfully.")
+
         for bill in self.total_bill:
             print(bill)
 
@@ -141,8 +145,6 @@ class Bill:
         for bill in self.cart:
             print(bill.bill_info())
 
-
-jalal = Bill(inventory)
-jalal.add_to_cart(103,4)
-jalal.add_to_cart(100,2)
-jalal.save_total_bill()
+    def clear_cart(self):
+        self.cart = []
+        print("Cart Cleared.")

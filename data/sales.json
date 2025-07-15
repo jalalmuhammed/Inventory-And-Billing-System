@@ -80,5 +80,77 @@
         "total_after_gst": 118.0,
         "total_after_discount": 112.1,
         "amount_payable": 112.1
+    },
+    {
+        "bill_id": 1005,
+        "sales_date_time": "2025-07-15 13:52:30",
+        "sales_items": [
+            {
+                "product_id": 100,
+                "product_name": "soap",
+                "product_price": 50,
+                "product_quantity": 5
+            },
+            {
+                "product_id": 102,
+                "product_name": "combinator",
+                "product_price": 39,
+                "product_quantity": 2
+            },
+            {
+                "product_id": 100,
+                "product_name": "soap",
+                "product_price": 50,
+                "product_quantity": 8
+            }
+        ],
+        "total_bill": 728,
+        "total_after_gst": 859.04,
+        "total_after_discount": 816.09,
+        "amount_payable": 816.09
+    },
+    {
+        "bill_id": 1006,
+        "sales_date_time": "2025-07-15 13:57:41",
+        "sales_items": [
+            {
+                "product_id": 100,
+                "product_name": "soap",
+                "product_price": 50,
+                "product_quantity": 6
+            },
+            {
+                "product_id": 104,
+                "product_name": "laptop",
+                "product_price": 55400.0,
+                "product_quantity": 1
+            }
+        ],
+        "total_bill": 55700.0,
+        "total_after_gst": 65726.0,
+        "total_after_discount": 62439.7,
+        "amount_payable": 62439.7
+    },
+    {
+        "bill_id": 1007,
+        "sales_date_time": "2025-07-15 13:59:26",
+        "sales_items": [
+            {
+                "product_id": 100,
+                "product_name": "soap",
+                "product_price": 50,
+                "product_quantity": 5
+            },
+            {
+                "product_id": 102,
+                "product_name": "combinator",
+                "product_price": 39,
+                "product_quantity": 6
+            }
+        ],
+        "total_bill": 484,
+        "total_after_gst": 571.12,
+        "total_after_discount": 542.56,
+        "amount_payable": 542.56
     }
 ]

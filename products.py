@@ -30,7 +30,7 @@ class Product:
     def show_product_info(self):
         data =(f"Product ID: {self.product_id} | "
               f"Product Name: {self.product_name} | "
-              f"Product Price: {self.product_price:.2f} | "
+              f"Product Price: {self.product_price} | "
               f"Product Stock: {self.product_quantity}")
 
         return data

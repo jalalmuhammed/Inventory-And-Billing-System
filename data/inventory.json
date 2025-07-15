@@ -3,18 +3,24 @@
         "product_id": 100,
         "product_name": "soap",
         "product_price": 50,
-        "product_stock": 32
+        "product_stock": 8
     },
     {
         "product_id": 102,
         "product_name": "combinator",
         "product_price": 39,
-        "product_stock": 50
+        "product_stock": 32
     },
     {
         "product_id": 103,
         "product_name": "comb",
         "product_price": 30,
-        "product_stock": 0
+        "product_stock": 98
+    },
+    {
+        "product_id": 104,
+        "product_name": "laptop",
+        "product_price": 55400.0,
+        "product_stock": 17
     }
 ]

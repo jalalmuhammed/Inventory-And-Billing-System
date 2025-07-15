@@ -16,5 +16,11 @@
         "email": "sinan@gmail.com",
         "password": "6064",
         "position": "cashier"
+    },
+    {
+        "name": "izza",
+        "email": "izza@gmial.com",
+        "password": "6066",
+        "position": "manager"
     }
 ]
