@@ -1,0 +1,84 @@
+[
+    {
+        "bill_id": 1001,
+        "sales_date_time": "2025-07-15 11:13:16",
+        "sales_items": [
+            {
+                "product_id": 103,
+                "product_name": "comb",
+                "product_price": 30,
+                "product_quantity": 4
+            },
+            {
+                "product_id": 100,
+                "product_name": "soap",
+                "product_price": 50,
+                "product_quantity": 2
+            }
+        ],
+        "total_bill": 220,
+        "total_after_gst": 259.6,
+        "total_after_discount": 246.62,
+        "amount_payable": 246.62
+    },
+    {
+        "bill_id": 1002,
+        "sales_date_time": "2025-07-15 11:13:19",
+        "sales_items": [
+            {
+                "product_id": 103,
+                "product_name": "comb",
+                "product_price": 30,
+                "product_quantity": 4
+            },
+            {
+                "product_id": 100,
+                "product_name": "soap",
+                "product_price": 50,
+                "product_quantity": 2
+            }
+        ],
+        "total_bill": 220,
+        "total_after_gst": 259.6,
+        "total_after_discount": 246.62,
+        "amount_payable": 246.62
+    },
+    {
+        "bill_id": 1003,
+        "sales_date_time": "2025-07-15 11:13:21",
+        "sales_items": [
+            {
+                "product_id": 103,
+                "product_name": "comb",
+                "product_price": 30,
+                "product_quantity": 4
+            },
+            {
+                "product_id": 100,
+                "product_name": "soap",
+                "product_price": 50,
+                "product_quantity": 2
+            }
+        ],
+        "total_bill": 220,
+        "total_after_gst": 259.6,
+        "total_after_discount": 246.62,
+        "amount_payable": 246.62
+    },
+    {
+        "bill_id": 1004,
+        "sales_date_time": "2025-07-15 11:13:24",
+        "sales_items": [
+            {
+                "product_id": 100,
+                "product_name": "soap",
+                "product_price": 50,
+                "product_quantity": 2
+            }
+        ],
+        "total_bill": 100,
+        "total_after_gst": 118.0,
+        "total_after_discount": 112.1,
+        "amount_payable": 112.1
+    }
+]

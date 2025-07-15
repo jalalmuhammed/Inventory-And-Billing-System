@@ -109,9 +109,11 @@ class Inventory:
 
     def show_all_product(self):
         """This function shows entire inventory"""
+        product_to_show = []
+        for product in self.products:
+            product_to_show.append(product.show_product_info())
 
-        data = self.file.load_file()
-        for product in data:
+        for product in product_to_show:
             print(f"{product}\n")
 
     def save_file(self,data):
@@ -122,13 +124,5 @@ class Inventory:
         return data
 
 
-
-product = Inventory()
-product.add_product("soap",25,50)
-product.add_product("comb",30,48)
-product.add_product("combinator",39,72)
-product.update_product(100,50,98)
-product.remove_product(101)
-product.add_product("comb",30,48)
 
 

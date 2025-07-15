@@ -28,10 +28,12 @@ class Product:
             self.product_quantity -= quantity
 
     def show_product_info(self):
-        print(f"Product ID: {self.product_id} | "
+        data =(f"Product ID: {self.product_id} | "
               f"Product Name: {self.product_name} | "
               f"Product Price: {self.product_price:.2f} | "
               f"Product Stock: {self.product_quantity}")
+
+        return data
 
     def to_save_dictionary(self):
         product_info = {
