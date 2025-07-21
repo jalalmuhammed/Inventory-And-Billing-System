@@ -14,13 +14,13 @@
     {
         "name": "sinan",
         "email": "sinan@gmail.com",
-        "password": "6064",
+        "password": "3121",
         "position": "cashier"
     },
     {
-        "name": "izza",
-        "email": "izza@gmial.com",
-        "password": "6066",
-        "position": "manager"
+        "name": "admin",
+        "email": "admin@gmial.com",
+        "password": "admin@123",
+        "position": "admin"
     }
 ]

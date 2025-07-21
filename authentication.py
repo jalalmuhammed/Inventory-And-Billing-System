@@ -60,8 +60,44 @@ def register_new_user():
         print(f"Error Occurred: {e}")
 
 
-datas = file.load_file()
+def change_user_password():
+    user_name = input("Enter User Name To Update Password: ").strip()
+    found = False
+    current_data = file.load_file()
 
+    for user in current_data:
+        if user["name"] == user_name:
+            found = True
+            new_password = input("Enter New Password: ")
+            if new_password != "":
+                user["password"] = new_password
+                file.save_file(current_data)
+                print("Password Updated Successfully.")
+                return
+
+    if not found:
+        print("No User Associated With That Name.")
+        return
+
+
+def remove_user():
+    user_name = input("Enter User Name To Remove User: ").strip()
+    found = False
+    current_data = file.load_file()
+
+    for user in current_data:
+        if user["name"] == user_name:
+            found = True
+            current_data.remove(user)
+            file.save_file(current_data)
+            print("User Removed Successfully.")
+            return
+
+    if not found:
+        print("No User Associated With That Name.")
+        return
+
+datas = file.load_file()
 def authenticate():
     """This function authenticate the user and return a
     boolean value to the calling person along with username."""
@@ -105,6 +141,23 @@ def check_manager():
                         return True,user_name
                     else:
                         print(f"Access Denied,{user_name} You Are Not A Manager.")
+                        return False,None
+
+    except Exception as e:
+        print(f"Error Occurred as: {e}")
+
+def check_admin():
+    """This function specifically check weather the user
+    have Admin access"""
+    try:
+        is_authenticated,user_name =authenticate()
+        if is_authenticated:
+            for user_data in datas:
+                if user_data.get("name") == user_name:
+                    if user_data.get("position") == "admin":
+                        return True,user_name
+                    else:
+                        print(f"Access Denied,{user_name} You Are Not Admin.")
                         return False,None
 
     except Exception as e:

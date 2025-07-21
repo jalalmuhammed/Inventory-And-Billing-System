@@ -1,5 +1,6 @@
 
-from authentication import authenticate,register_new_user,check_manager
+from authentication import (authenticate,register_new_user,
+                            check_manager,check_admin,change_user_password,remove_user)
 from inventory import Inventory
 from billing import Bill
 from reporting import SalesReport
@@ -131,6 +132,20 @@ def analyst_dashboard(sales_report):
         except ValueError:
             print("Enter Valid Inputs.")
 
+def admin_dashboard():
+    user_input = int(input("1: Register New User \n2: Edit User Password \n3: Remove A User: ").strip())
+    if user_input == 1:
+        register_new_user()
+
+    elif user_input == 2:
+        change_user_password()
+
+    elif user_input == 3:
+        remove_user()
+
+    else:
+        print("Enter Valid Options")
+        return
 
 def main():
     """This is the main function,which take user choice and call the favorable functions"""
@@ -139,29 +154,32 @@ def main():
     try:
         choice = int(input("""
             How do you Want to Enter,
-            1: Manager 2: Cashier 3:Analyst 4: Register 
+            1: Manager 2: Cashier 3:Analyst 4: Admin
             : """))
 
         #we specially check whether this user have access to the manager dashboard separately
         if choice == 1:
             is_authenticated, user_name = check_manager()
             if is_authenticated:
-                print(f"{user_name},Welcome To Your Manager Dashboard. ")
+                print(f"{user_name.title()},Welcome To Your Manager Dashboard. ")
                 manager_dashboard(inventory)
 
         elif choice in [2,3]:
             is_authenticated,user_name = authenticate()
             if is_authenticated:
                 if choice == 2:
-                    print(f"{user_name},Welcome To Your Cashier Dashboard. ")
+                    print(f"{user_name.title()},Welcome To Your Cashier Dashboard. ")
                     cashier_dashboard(inventory,sales_report)
 
                 elif choice == 3:
-                    print(f"{user_name},Welcome To Your Analyst Dashboard. ")
+                    print(f"{user_name.title()},Welcome To Your Analyst Dashboard. ")
                     analyst_dashboard(sales_report)
 
         elif choice == 4:
-            register_new_user()
+            is_authenticated, user_name = check_admin()
+            if is_authenticated:
+                print(f"{user_name.title()},Welcome To Admin Dashboard.")
+                admin_dashboard()
 
         else:
             print("Enter Valid Options.")
