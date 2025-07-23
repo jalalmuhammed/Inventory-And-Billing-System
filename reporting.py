@@ -115,9 +115,3 @@ class SalesReport:
         print(over_view)
 
 
-
-
-
-billinfo = SalesReport()
-billinfo.show_all_bill()
-
